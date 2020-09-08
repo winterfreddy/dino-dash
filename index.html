@@ -3,9 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dino Dash</title>
+    <link rel="stylesheet" href="./public/stylesheets/layout.css">
 </head>
 <body>
-    <h1>Dino Dash</h1>
+    <script type="text/javascript" src="./src/sidebar.js"></script>
+    <div class="navbar">
+        <h1>Dino Dash</h1>
+    </div>
+    <div class="main-content">
+        <div class="sidebar">
+            <div class="tab">
+                <button class="tablinks" onclick="openTab(event, 'guide')">How To</button>
+                <button class="tablinks" onclick="openTab(event, 'score')" id="defaultOpen">High scores</button>
+            </div>
+            <div id="guide" class="tabcontent">
+                <h3>Instructions</h3>
+                <p>Instructions todo</p>
+            </div>
+            <div id="score" class="tabcontent">
+                <h3>High Scores</h3>
+                <p>High scores will be documented below</p>
+            </div>
+        </div>
+        <div class="game-content">
+            <div class="game-screen">
+
+            </div>
+            <div class="game-controls">
+
+            </div>
+        </div>
+    </div>
+    <script>document.getElementById("defaultOpen").click();</script>
 </body>
 </html>
