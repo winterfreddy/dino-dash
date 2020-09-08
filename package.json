@@ -1,0 +1,24 @@
+{
+  "name": "dino-dash",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --watch --mode=development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/winterfreddy/dino-dash.git"
+  },
+  "author": "Winfred Huang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/winterfreddy/dino-dash/issues"
+  },
+  "homepage": "https://github.com/winterfreddy/dino-dash#readme",
+  "dependencies": {
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
