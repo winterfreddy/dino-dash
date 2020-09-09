@@ -4,6 +4,7 @@ let canvasHeight = 500;
 let idleDinoCharacter = new Image();
 idleDinoCharacter.src = "../public/images/css_sprites_idle.png";
 let walkDinoCharacter = new Image();
+walkDinoCharacter.src = "../public/images/css_sprites_walk.png";
 let runDinoCharacter = new Image();
 let tripDinoCharacter = new Image();
 let deadDinoCharacter = new Image();
@@ -49,14 +50,22 @@ let ctx = canvas.getContext('2d');
 
 function updateFrame() {
     ctx.clearRect(x, y, dinoWidth, dinoHeight);
-    currentFrame = ++currentFrame % idleFrameLength;
+    if(walk) {
+        currentFrame = ++currentFrame % walkFrameLength;
+    } else {
+        currentFrame = ++currentFrame % idleFrameLength;
+    }
     srcX = currentFrame * dinoWidth;
     srcY = 0;
 }
 
 function drawImage() {
     updateFrame();
-    ctx.drawImage(idleDinoCharacter, srcX, srcY, dinoWidth, dinoHeight, x, y, dinoWidth, dinoHeight);
+    if(walk) {
+        ctx.drawImage(walkDinoCharacter, srcX, srcY, dinoWidth, dinoHeight, x, y, dinoWidth, dinoHeight);
+    } else {
+        ctx.drawImage(idleDinoCharacter, srcX, srcY, dinoWidth, dinoHeight, x, y, dinoWidth, dinoHeight);
+    }
 }
 
 function dinoIdle() {
@@ -67,6 +76,14 @@ function dinoIdle() {
     dead = false;
 }
 
+function dinoWalk() {
+    idle = false;
+    walk = true;
+    run = false;
+    trip = false;
+    dead = false;
+}
+
 setInterval(function(){
     drawImage();
-}, 100);
+}, 80);
