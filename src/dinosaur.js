@@ -6,6 +6,7 @@ idleDinoCharacter.src = "../public/images/css_sprites_idle.png";
 let walkDinoCharacter = new Image();
 walkDinoCharacter.src = "../public/images/css_sprites_walk.png";
 let runDinoCharacter = new Image();
+runDinoCharacter.src = "../public/images/css_sprites_run.png";
 let tripDinoCharacter = new Image();
 let deadDinoCharacter = new Image();
 
@@ -52,6 +53,8 @@ function updateFrame() {
     ctx.clearRect(x, y, dinoWidth, dinoHeight);
     if(walk) {
         currentFrame = ++currentFrame % walkFrameLength;
+    } else if(run) {
+        currentFrame = ++currentFrame % runFrameLength;
     } else {
         currentFrame = ++currentFrame % idleFrameLength;
     }
@@ -63,6 +66,8 @@ function drawImage() {
     updateFrame();
     if(walk) {
         ctx.drawImage(walkDinoCharacter, srcX, srcY, dinoWidth, dinoHeight, x, y, dinoWidth, dinoHeight);
+    } else if(run) {
+        ctx.drawImage(runDinoCharacter, srcX, srcY, dinoWidth, dinoHeight, x, y, dinoWidth, dinoHeight);
     } else {
         ctx.drawImage(idleDinoCharacter, srcX, srcY, dinoWidth, dinoHeight, x, y, dinoWidth, dinoHeight);
     }
@@ -80,6 +85,14 @@ function dinoWalk() {
     idle = false;
     walk = true;
     run = false;
+    trip = false;
+    dead = false;
+}
+
+function dinoRun() {
+    idle = false;
+    walk = false;
+    run = true;
     trip = false;
     dead = false;
 }
