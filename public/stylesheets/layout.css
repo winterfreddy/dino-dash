@@ -51,11 +51,32 @@
   border: 1px solid #ccc;
   border-top: none;
   width: 274px;
-  min-height: 500px;
+  min-height: 400px;
 }
 
 .tabcontent {
   animation: fadeEffect 1s;
+}
+
+.game-controls {
+    position: absolute;
+    border: 1px solid black;
+    bottom: 50px;
+    left: 50px;
+    padding: 20px;
+    height: 250px;
+}
+
+.game-actions {
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 10px;
+}
+
+.game-start,
+.game-reset {
+    padding: 10px;
+    font-size: 20px;
 }
 
 @keyframes fadeEffect {

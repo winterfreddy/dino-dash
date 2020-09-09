@@ -14,8 +14,8 @@
     <div class="main-content">
         <div class="sidebar">
             <div class="tab">
-                <button class="tablinks" onclick="openTab(event, 'guide')">How To</button>
-                <button class="tablinks" onclick="openTab(event, 'score')" id="defaultOpen">High scores</button>
+                <button class="tablinks" onclick="openTab(event, 'guide')">How To Play</button>
+                <button class="tablinks" onclick="openTab(event, 'score')" id="defaultOpen">High Scores</button>
             </div>
             <div id="guide" class="tabcontent">
                 <h3>Instructions</h3>
@@ -31,7 +31,17 @@
 
             </div>
             <div class="game-controls">
-
+                <div class="game-actions">
+                    <button class="game-start">START</button>
+                    <button class="game-reset">RESET</button>
+                </div>
+                <input type="radio" name="choice" id="demo">
+                <label for="choice">Demo text</label>
+                <br>
+                <input type="radio" name="choice" id="">
+                <label for="choice">Custom Text:</label>
+                <br>
+                <textarea name="" id="" cols="30" rows="10"></textarea>
             </div>
         </div>
     </div>
