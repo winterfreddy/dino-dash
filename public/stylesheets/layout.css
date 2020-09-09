@@ -31,7 +31,7 @@ body {
 .tab {
     display: flex;
     overflow: hidden;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     background-color: #f1f1f1;
 }
 
@@ -51,7 +51,7 @@ body {
 }
 
 .tab button.active {
-  background-color: #ccc;
+  background-color: #f4c430;
 }
 
 .tabcontent {
@@ -94,6 +94,7 @@ body {
     font-size: 20px;
     font-weight: bold;
     width: 40%;
+    border: 1px solid black;
 }
 
 .game-start:hover {
