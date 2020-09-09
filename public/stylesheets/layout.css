@@ -73,7 +73,7 @@
 .game-actions {
     display: flex;
     justify-content: space-evenly;
-    padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 .game-start,
