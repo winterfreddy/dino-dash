@@ -43,7 +43,7 @@
         <div class="game-content">
             <div class="game-screen">
                 <canvas id="myCanvas" width="700" height="500" class="canvas"></canvas>
-                <input type="text" class="type-input">
+                <input type="text" class="type-input" id="type-input">
             </div>
             <div class="game-controls">
                 <label>Select typing practice choice:</label>
@@ -56,12 +56,13 @@
                 <textarea name="" id="" cols="30" rows="10"></textarea>
                 <div class="game-actions">
                     <button class="game-reset" onclick="dinoAction('i')">RESET</button>
-                    <button class="game-start" onclick="dinoAction('w')">START</button>
+                    <button class="game-start" onclick="startGame()">START</button>
                 </div>
             </div>
         </div>
     </div>
     <script>document.getElementById("defaultOpen").click();</script>
     <script type="text/javascript" src="./src/dinosaur.js"></script>
+    <script type="text/javascript" src="./src/game.js"></script>
 </body>
 </html>
