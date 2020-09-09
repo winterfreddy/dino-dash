@@ -1,18 +1,25 @@
+body {
+    background-color: #5d432c;
+}
+
 .navbar {
     position: absolute;
     display: flex;
-    background-color: green;
+    background-color: #f4c430;
     justify-content: center;
     align-items: center;
     top: 0;
     left: 0;
     right: 0;
     height: 50px;
-    color: white;
+    color: black;
+    border-bottom: 3px solid black;
 }
 
 .sidebar {
     position: absolute;
+    border-radius: 3px;
+    border: 3px solid black;
     top: 100px;
     left: 50px;
     bottom: 40%;
@@ -29,7 +36,7 @@
 }
 
 .tab button {
-  background-color: inherit;
+  background-color: #635147;
   float: left;
   border: none;
   outline: none;
@@ -55,6 +62,7 @@
   border-top: none;
   width: 259px;
   min-height: 400px;
+  background-color: #f4c430;
 }
 
 .tabcontent {
@@ -62,6 +70,9 @@
 }
 
 .game-controls {
+    background-color: #f4c430;
+    border: 3px solid black !important;
+    border-radius: 5px;
     position: absolute;
     border: 1px solid black;
     bottom: 50px;
@@ -79,7 +90,20 @@
 .game-start,
 .game-reset {
     padding: 10px;
+    border-radius: 3px;
     font-size: 20px;
+    font-weight: bold;
+    width: 40%;
+}
+
+.game-start:hover {
+    background-color: green;
+    color: white;
+}
+
+.game-reset:hover {
+    background-color: red;
+    color: white;
 }
 
 .game-screen {
