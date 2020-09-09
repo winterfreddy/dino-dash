@@ -123,6 +123,19 @@ body {
     bottom: 50px;
 }
 
+.type-input {
+    position: absolute;
+    height: 50px;
+    width: 400px;
+    bottom: 10px;
+    left: 35%;
+    background: none;
+    font-size: 25px;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+}
+
 @keyframes fadeEffect {
   from {opacity: 0;}
   to {opacity: 1;}
