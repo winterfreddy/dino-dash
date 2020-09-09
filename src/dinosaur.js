@@ -11,7 +11,7 @@ tripDinoCharacter.src = "../public/images/css_sprites_trip.png";
 let deadDinoCharacter = new Image();
 deadDinoCharacter.src = "../public/images/css_sprites_dead.png";
 
-let canvasWidth = 700;
+let canvasWidth = 2500;
 let canvasHeight = 500;
 let dinoWidth = 700;
 let dinoHeight = 492;
@@ -46,8 +46,14 @@ function updateFrame() {
     ctx.clearRect(x, y, dinoWidth, dinoHeight);
     let frameLength;
     if(walk) {
+        while(x < 500) {
+            x += 1;
+        }
         frameLength = walkFrameLength;
-    } else if(run) {
+    } else if( (x >= 500) || run) {
+        while(x < 1000) {
+            x += 1;
+        }
         frameLength = runFrameLength;
     } else if(jump) {
         frameLength = jumpFrameLength;
@@ -68,6 +74,9 @@ function drawImage() {
     let dinoCharacter;
     if(walk) {
         dinoCharacter = walkDinoCharacter;
+        if(x >= 500) {
+            dinoAction("r");
+        }
     } else if(run) {
         dinoCharacter = runDinoCharacter;
     } else if(jump) {
@@ -91,6 +100,9 @@ function dinoAction(action) {
     dead = false;
 
     if(action === "i") {
+        ctx.clearRect(x, y, dinoWidth, dinoHeight);
+        x = 0;
+        y = 0;
         idle = true;
     } else if(action === "w") {
         walk = true;
