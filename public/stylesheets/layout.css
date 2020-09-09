@@ -15,7 +15,10 @@
     position: absolute;
     top: 100px;
     left: 50px;
+    bottom: 40%;
     width: 300px;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
 .tab {
@@ -50,7 +53,7 @@
   padding: 6px 12px;
   border: 1px solid #ccc;
   border-top: none;
-  width: 274px;
+  width: 259px;
   min-height: 400px;
 }
 
