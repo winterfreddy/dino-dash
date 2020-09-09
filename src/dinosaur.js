@@ -7,6 +7,8 @@ let walkDinoCharacter = new Image();
 walkDinoCharacter.src = "../public/images/css_sprites_walk.png";
 let runDinoCharacter = new Image();
 runDinoCharacter.src = "../public/images/css_sprites_run.png";
+let jumpDinoCharacter = new Image();
+jumpDinoCharacter.src = "../public/images/css_sprites_jump.png";
 let tripDinoCharacter = new Image();
 tripDinoCharacter.src = "../public/images/css_sprites_trip.png";
 let deadDinoCharacter = new Image();
@@ -31,6 +33,7 @@ let deadFrameLength = 8;
 let idle = false;
 let walk = false;
 let run = false;
+let jump = false;
 let trip = false;
 let dead = false;
 
@@ -56,6 +59,8 @@ function updateFrame() {
         currentFrame = ++currentFrame % walkFrameLength;
     } else if(run) {
         currentFrame = ++currentFrame % runFrameLength;
+    } else if(jump) {
+        currentFrame = ++currentFrame % jumpFrameLength;
     } else if(trip) {
         currentFrame = ++currentFrame % tripFrameLength;
     } else if(dead) {
@@ -73,6 +78,8 @@ function drawImage() {
         ctx.drawImage(walkDinoCharacter, srcX, srcY, dinoWidth, dinoHeight, x, y, dinoWidth, dinoHeight);
     } else if(run) {
         ctx.drawImage(runDinoCharacter, srcX, srcY, dinoWidth, dinoHeight, x, y, dinoWidth, dinoHeight);
+    } else if(jump) {
+        ctx.drawImage(jumpDinoCharacter, srcX, srcY, dinoWidth, dinoHeight, x, y, dinoWidth, dinoHeight);
     } else if(trip) {
         ctx.drawImage(tripDinoCharacter, srcX, srcY, dinoWidth, dinoHeight, x, y, dinoWidth, dinoHeight);
     } else if(dead) {
@@ -86,6 +93,7 @@ function dinoIdle() {
     idle = true;
     walk = false;
     run = false;
+    jump = false;
     trip = false;
     dead = false;
 }
@@ -94,6 +102,7 @@ function dinoWalk() {
     idle = false;
     walk = true;
     run = false;
+    jump = false;
     trip = false;
     dead = false;
 }
@@ -102,6 +111,16 @@ function dinoRun() {
     idle = false;
     walk = false;
     run = true;
+    jump = false;
+    trip = false;
+    dead = false;
+}
+
+function dinoJump() {
+    idle = false;
+    walk = false;
+    run = false;
+    jump = true;
     trip = false;
     dead = false;
 }
@@ -110,6 +129,7 @@ function dinoTrip() {
     idle = false;
     walk = false;
     run = false;
+    jump = false;
     trip = true;
     dead = false;
 }
@@ -117,6 +137,7 @@ function dinoDead() {
     idle = false;
     walk = false;
     run = false;
+    jump = false;
     trip = false;
     dead = true;
 }
