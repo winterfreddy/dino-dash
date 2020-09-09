@@ -10,6 +10,8 @@ let tripDinoCharacter = new Image();
 tripDinoCharacter.src = "../public/images/css_sprites_trip.png";
 let deadDinoCharacter = new Image();
 deadDinoCharacter.src = "../public/images/css_sprites_dead.png";
+let endDinoCharacter = new Image();
+endDinoCharacter.src = "../public/images/css_sprites_end.png";
 
 let canvasWidth = 2500;
 let canvasHeight = 500;
@@ -22,6 +24,7 @@ let runFrameLength = 8;
 let jumpFrameLength = 12;
 let tripFrameLength = 3;
 let deadFrameLength = 8;
+let endFrameLength = 3;
 
 let idle = false;
 let walk = false;
@@ -29,6 +32,7 @@ let run = false;
 let jump = false;
 let trip = false;
 let dead = false;
+let over = false;
 
 let x = 0;
 let y = 0;
@@ -36,6 +40,7 @@ let srcX;
 let srcY;
 
 let currentFrame = 0;
+let gameOver = false;
 
 let canvas = document.getElementById("myCanvas");
 canvas.width = canvasWidth;
@@ -46,14 +51,10 @@ function updateFrame() {
     ctx.clearRect(x, y, dinoWidth, dinoHeight);
     let frameLength;
     if(walk) {
-        while(x < 500) {
-            x += 1;
-        }
+        while(x < 500) { x += 1; }
         frameLength = walkFrameLength;
     } else if( (x >= 500) || run) {
-        while(x < 1000) {
-            x += 1;
-        }
+        while(x < 1000) { x += 1; }
         frameLength = runFrameLength;
     } else if(jump) {
         frameLength = jumpFrameLength;
@@ -61,10 +62,13 @@ function updateFrame() {
         frameLength = tripFrameLength;
     } else if(dead) {
         frameLength = deadFrameLength;
+    } else if(over) {
+        frameLength = endFrameLength;
     } else {
         frameLength = idleFrameLength;
     }
     currentFrame = ++currentFrame % frameLength;
+    if(dead && (currentFrame === 7)) { gameOver = true; }
     srcX = currentFrame * dinoWidth;
     srcY = 0;
 }
@@ -74,9 +78,7 @@ function drawImage() {
     let dinoCharacter;
     if(walk) {
         dinoCharacter = walkDinoCharacter;
-        if(x >= 500) {
-            dinoAction("r");
-        }
+        if(x >= 500) { dinoAction("r"); }
     } else if(run) {
         dinoCharacter = runDinoCharacter;
     } else if(jump) {
@@ -85,6 +87,9 @@ function drawImage() {
         dinoCharacter = tripDinoCharacter;
     } else if(dead) {
         dinoCharacter = deadDinoCharacter;
+        if(gameOver) { dinoAction("o"); }
+    } else if(over) {
+        dinoCharacter = endDinoCharacter;
     } else {
         dinoCharacter = idleDinoCharacter;
     }
@@ -98,6 +103,7 @@ function dinoAction(action) {
     jump = false;
     trip = false;
     dead = false;
+    over = false;
 
     if(action === "i") {
         ctx.clearRect(x, y, dinoWidth, dinoHeight);
@@ -114,6 +120,8 @@ function dinoAction(action) {
         trip = true;
     } else if(action === "d") {
         dead = true;
+    } else if(action === "o") {
+        over = true;
     }
 }
 
