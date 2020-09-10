@@ -17,21 +17,32 @@ function startGame() {
         if(event.which === 13) {
             let input = document.getElementById('type-input').value;
             if(input === word) {
-                dinoAction('j');
-                wCtx.clearRect(0,0, 700, 500);
-                wCtx.fillStyle = "Black";
-                word = sampleWord();
+                wCtx.clearRect(0, 0, 700, 500);
+                wCtx.fillStyle = "Green";
                 wCtx.fillText(word, 300, 300);
+                dinoAction('j');
+                setTimeout(function() {
+                    wCtx.clearRect(0, 0, 700, 500);
+                    wCtx.fillStyle = "Black";
+                    word = sampleWord();
+                    wCtx.fillText(word, 300, 300);
+                },700);
             } else if(input !== word) {
                 wCtx.clearRect(0, 0, 700, 500);
-                dinoAction('t');
-                counter += 1;
-                if(counter > 2) {
-                    wCtx.clearRect(0, 0, 700, 500);
-                    dinoAction('d');
-                }
-                word = sampleWord();
+                wCtx.fillStyle = "Red";
                 wCtx.fillText(word, 300, 300);
+                dinoAction('t');
+                setTimeout(function() {
+                    counter += 1;
+                    if(counter > 2) {
+                        wCtx.clearRect(0, 0, 700, 500);
+                        dinoAction('d');
+                    }
+                    wCtx.clearRect(0, 0, 700, 500);
+                    wCtx.fillStyle = "Black";
+                    word = sampleWord();
+                    wCtx.fillText(word, 300, 300);
+                }, 1000);
             }
             document.getElementById('type-input').value = '';
         }
