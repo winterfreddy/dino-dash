@@ -42,6 +42,7 @@ let srcY;
 let currentFrame = 0;
 let gameOver = false;
 let jumpOnce = false;
+let tripOnce = false;
 
 let canvas = document.getElementById("myCanvas");
 canvas.width = canvasWidth;
@@ -71,6 +72,7 @@ function updateFrame() {
     currentFrame = ++currentFrame % frameLength;
     if(dead && (currentFrame === 7)) { gameOver = true; }
     if(jump && (currentFrame === 7)) { jumpOnce = true; }
+    if(trip && (currentFrame === 2)) { tripOnce = true; }
     srcX = currentFrame * dinoWidth;
     srcY = 0;
 }
@@ -91,6 +93,10 @@ function drawImage() {
         }
     } else if(trip) {
         dinoCharacter = tripDinoCharacter;
+        if (tripOnce) {
+            tripOnce = false;
+            dinoAction('r');
+        }
     } else if(dead) {
         dinoCharacter = deadDinoCharacter;
         if(gameOver) { dinoAction("o"); }
