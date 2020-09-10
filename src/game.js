@@ -12,12 +12,13 @@ let startTime;
 let endTime;
 
 function startGame() {
+    let customRadio = document.getElementById("custom").checked;
     document.getElementById("gamescreen").style.opacity = "1.0";
     document.getElementById("end-game").style.display = "none";
     document.getElementById('type-input').focus();
     dinoAction('w');
     startTime = new Date().getTime();
-    word = sampleWord();
+    word = customRadio ? customWord() : sampleWord();
     wCtx.fillText(word, 300, 300);
     document.addEventListener('keydown', function(event) {
         if(event.which === 13) {
@@ -31,7 +32,7 @@ function startGame() {
                 setTimeout(function() {
                     wCtx.clearRect(0, 0, 700, 500);
                     wCtx.fillStyle = "Black";
-                    word = sampleWord();
+                    word = customRadio ? customWord() : sampleWord();
                     wCtx.fillText(word, 300, 300);
                 },700);
             } else if(input !== word) {
@@ -49,7 +50,7 @@ function startGame() {
                     }
                     wCtx.clearRect(0, 0, 700, 500);
                     wCtx.fillStyle = "Black";
-                    word = sampleWord();
+                    word = customRadio ? customWord() : sampleWord();
                     wCtx.fillText(word, 300, 300);
                 }, 1000);
             }
@@ -73,5 +74,5 @@ function calculateWPM() {
         seconds += (minutes * 60);
     }
     let wpm = (wordCounter * 60)/seconds;
-    document.getElementById("wpm-text").innerHTML = wpm;
+    document.getElementById("wpm-text").innerHTML = wpm.toFixed(2);
 }

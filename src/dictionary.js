@@ -8,3 +8,14 @@ function sampleWord() {
     const randomNum = Math.floor(Math.random() * demoWords.length);
     return demoWords[randomNum];
 }
+
+function customWord() {
+    let customText = document.getElementById("custom-textarea").value;
+    if(customText.length < 100) {
+        alert("Text box needs to have at least 100 characters. Press Start when ready");
+        return;
+    }
+    let customArray = customText.toLowerCase().replace(/,/g, '').split(" ");
+    const randomNum = Math.floor(Math.random() * customArray.length);
+    return customArray[randomNum];
+}
