@@ -7,18 +7,23 @@ wCtx.font = "48px Georgia";
 wCtx.fillStyle = "Black";
 let word;
 let counter = 0;
+let wordCounter = 0;
+let startTime;
+let endTime;
 
 function startGame() {
     document.getElementById("gamescreen").style.opacity = "1.0";
     document.getElementById("end-game").style.display = "none";
     document.getElementById('type-input').focus();
     dinoAction('w');
+    startTime = new Date().getTime();
     word = sampleWord();
     wCtx.fillText(word, 300, 300);
     document.addEventListener('keydown', function(event) {
         if(event.which === 13) {
             let input = document.getElementById('type-input').value;
             if(input === word) {
+                wordCounter += 1;
                 wCtx.clearRect(0, 0, 700, 500);
                 wCtx.fillStyle = "Green";
                 wCtx.fillText(word, 300, 300);
@@ -37,6 +42,7 @@ function startGame() {
                 setTimeout(function() {
                     counter += 1;
                     if(counter > 2) {
+                        endTime = new Date().getTime();
                         wCtx.clearRect(0, 0, 700, 500);
                         dinoAction('d');
                         endGame();
@@ -53,6 +59,19 @@ function startGame() {
 }
 
 function endGame() {
+    calculateWPM();
     document.getElementById("gamescreen").style.opacity = "0.5";
     document.getElementById("end-game").style.display = "block";
+    document.getElementById('scorename').focus();
+}
+
+function calculateWPM() {
+    let difference = endTime - startTime;
+    let minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((difference % (1000 * 60)) / 1000);
+    if(minutes > 0) {
+        seconds += (minutes * 60);
+    }
+    let wpm = (wordCounter * 60)/seconds;
+    document.getElementById("wpm-text").innerHTML = wpm;
 }
