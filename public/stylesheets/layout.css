@@ -123,6 +123,12 @@ body {
     bottom: 50px;
 }
 
+.word-canvas {
+    position: absolute;
+    width: 90%;
+    height: 50%;
+}
+
 .type-input {
     position: absolute;
     height: 50px;
