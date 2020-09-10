@@ -41,10 +41,25 @@
             </div>
         </div>
         <div class="game-content">
-            <div class="game-screen">
+            <div class="game-screen" id="gamescreen">
                 <canvas id="myCanvas" width="700" height="500" class="canvas"></canvas>
                 <canvas id="wordCanvas" width="700" height="400" class="word-canvas"></canvas>
                 <input type="text" class="type-input" id="type-input">
+            </div>
+            <div id="end-game" class="end-game-dialog">
+                <label class="gameover-title">Game Over</label>
+                <div class="end-score">
+                    <label class="end-score-title">Your score is:&nbsp;</label>
+                    <label class="wpm">undefined</label>
+                    <label class="wpm">&nbsp;WPM</label>
+                </div>
+                <label class="end-score-title">Enter your name to be counted on the scoreboard!</label>
+                <br>
+                <input type="text" placeholder="Your name" class="scoreboard-name">
+                <div class="endgame-actions">
+                    <button>Restart</button>
+                    <button>Submit</button>
+                </div>
             </div>
             <div class="game-controls">
                 <label>Select typing practice choice:</label>

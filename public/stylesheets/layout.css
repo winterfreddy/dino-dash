@@ -142,6 +142,45 @@ body {
     text-align: center;
 }
 
+.end-game-dialog {
+    display: none;
+    position: absolute;
+    background-color: #f4c430;
+    border: 3px solid black;
+    border-radius: 5px;
+    padding: 20px;
+    top: 30%;
+    left: 45%;
+    right: 25%;
+}
+
+.end-score {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0 10px 0;
+}
+
+.scoreboard-name {
+    width: 95%;
+    font-size: 15px;
+    padding-top: 5px;
+    margin: 5px 0 5px 0;
+}
+
+.endgame-actions {
+    display: flex;
+    justify-content: space-evenly;
+}
+.endgame-actions button {
+    border: 1px solid black;
+    border-radius: 3px;
+    font-size: 20px;
+    font-weight: 700;
+    width: 30%;
+    padding: 10px;
+    margin-top: 10px;
+ }
+
 @keyframes fadeEffect {
   from {opacity: 0;}
   to {opacity: 1;}

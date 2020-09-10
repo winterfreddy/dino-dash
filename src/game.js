@@ -9,6 +9,8 @@ let word;
 let counter = 0;
 
 function startGame() {
+    document.getElementById("gamescreen").style.opacity = "1.0";
+    document.getElementById("end-game").style.display = "none";
     document.getElementById('type-input').focus();
     dinoAction('w');
     word = sampleWord();
@@ -37,6 +39,7 @@ function startGame() {
                     if(counter > 2) {
                         wCtx.clearRect(0, 0, 700, 500);
                         dinoAction('d');
+                        endGame();
                     }
                     wCtx.clearRect(0, 0, 700, 500);
                     wCtx.fillStyle = "Black";
@@ -47,4 +50,9 @@ function startGame() {
             document.getElementById('type-input').value = '';
         }
     })
+}
+
+function endGame() {
+    document.getElementById("gamescreen").style.opacity = "0.5";
+    document.getElementById("end-game").style.display = "block";
 }
