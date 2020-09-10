@@ -6,6 +6,7 @@ let wCtx = wordCanvas.getContext('2d');
 wCtx.font = "48px Georgia";
 wCtx.fillStyle = "Black";
 let word;
+let counter = 0;
 
 function startGame() {
     document.getElementById('type-input').focus();
@@ -18,16 +19,19 @@ function startGame() {
             if(input === word) {
                 dinoAction('j');
                 wCtx.clearRect(0,0, 700, 500);
+                wCtx.fillStyle = "Black";
                 word = sampleWord();
                 wCtx.fillText(word, 300, 300);
-            } else if(input === "fire") {
-                dinoAction('j');
-            } else if(input === "trip") {
+            } else if(input !== word) {
+                wCtx.clearRect(0, 0, 700, 500);
                 dinoAction('t');
-            } else if(input === "dead") {
-                dinoAction('d');
-            } else {
-                dinoAction('w');
+                counter += 1;
+                if(counter > 2) {
+                    wCtx.clearRect(0, 0, 700, 500);
+                    dinoAction('d');
+                }
+                word = sampleWord();
+                wCtx.fillText(word, 300, 300);
             }
             document.getElementById('type-input').value = '';
         }
