@@ -1,5 +1,5 @@
 let idleDinoCharacter = new Image();
-idleDinoCharacter.src = "../public/images/css_sprites_idle.png";
+idleDinoCharacter.src = "./public/images/css_sprites_idle.png";
 let walkDinoCharacter = new Image();
 walkDinoCharacter.src = "../public/images/css_sprites_walk.png";
 let runDinoCharacter = new Image();
@@ -135,7 +135,7 @@ function drawImage() {
     } else {
         dinoCharacter = idleDinoCharacter;
     }
-    window.onload = function() {ctx.drawImage(dinoCharacter, srcX, srcY, dinoWidth, dinoHeight, x, y, dinoWidth, dinoHeight);};
+    window.onload = ctx.drawImage(dinoCharacter, srcX, srcY, dinoWidth, dinoHeight, x, y, dinoWidth, dinoHeight);
     ctx.beginPath();
     ctx.ellipse(x2, 500, radiusX, radiusY, Math.PI / 2, 0, 2 * Math.PI);
     ctx.stroke();
@@ -173,5 +173,5 @@ function dinoAction(action) {
 }
 
 setInterval(function(){
-    window.onload = function() {drawImage();}
+    window.onload = drawImage();
 }, 80);
