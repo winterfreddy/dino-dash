@@ -173,5 +173,5 @@ function dinoAction(action) {
 }
 
 setInterval(function(){
-    drawImage();
+    window.onload = drawImage();
 }, 80);
