@@ -1,17 +1,17 @@
 let idleDinoCharacter = new Image();
 idleDinoCharacter.src = "./public/images/css_sprites_idle.png";
 let walkDinoCharacter = new Image();
-walkDinoCharacter.src = "../public/images/css_sprites_walk.png";
+walkDinoCharacter.src = "./public/images/css_sprites_walk.png";
 let runDinoCharacter = new Image();
-runDinoCharacter.src = "../public/images/css_sprites_run.png";
+runDinoCharacter.src = "./public/images/css_sprites_run.png";
 let jumpDinoCharacter = new Image();
-jumpDinoCharacter.src = "../public/images/css_sprites_jump.png";
+jumpDinoCharacter.src = "./public/images/css_sprites_jump.png";
 let tripDinoCharacter = new Image();
-tripDinoCharacter.src = "../public/images/css_sprites_trip.png";
+tripDinoCharacter.src = "./public/images/css_sprites_trip.png";
 let deadDinoCharacter = new Image();
-deadDinoCharacter.src = "../public/images/css_sprites_dead.png";
+deadDinoCharacter.src = "./public/images/css_sprites_dead.png";
 let endDinoCharacter = new Image();
-endDinoCharacter.src = "../public/images/css_sprites_end.png";
+endDinoCharacter.src = "./public/images/css_sprites_end.png";
 
 let canvasWidth = 2500;
 let canvasHeight = 550;
