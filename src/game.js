@@ -23,7 +23,7 @@ function startGame() {
     document.addEventListener('keydown', function(event) {
         if(event.which === 13) {
             let input = document.getElementById('type-input').value;
-            if(input === word) {
+            if(input === word && x2 > 1500) {
                 wordCounter += 1;
                 wCtx.clearRect(0, 0, 700, 500);
                 wCtx.fillStyle = "Green";
@@ -35,7 +35,7 @@ function startGame() {
                     word = customRadio ? customWord() : sampleWord();
                     wCtx.fillText(word, 300, 300);
                 },700);
-            } else if(input !== word) {
+            } else {
                 wCtx.clearRect(0, 0, 700, 500);
                 wCtx.fillStyle = "Red";
                 wCtx.fillText(word, 300, 300);

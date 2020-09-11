@@ -14,7 +14,7 @@ let endDinoCharacter = new Image();
 endDinoCharacter.src = "../public/images/css_sprites_end.png";
 
 let canvasWidth = 2500;
-let canvasHeight = 500;
+let canvasHeight = 550;
 let dinoWidth = 700;
 let dinoHeight = 492;
 
@@ -35,9 +35,12 @@ let dead = false;
 let over = false;
 
 let x = 0;
+let x2 = 3000;
 let y = 0;
 let srcX;
 let srcY;
+let radiusX = 20;
+let radiusY = 150;
 
 let currentFrame = 0;
 let gameOver = false;
@@ -48,15 +51,23 @@ let canvas = document.getElementById("myCanvas");
 canvas.width = canvasWidth;
 canvas.height = canvasHeight;
 let ctx = canvas.getContext('2d');
+ctx.beginPath();
+ctx.ellipse(x2, 500, radiusX, radiusY, Math.PI / 2, 0, 2 * Math.PI);
+ctx.stroke();
+ctx.fillStyle = "rgb(255,103,0)";
+ctx.fill();
 
 function updateFrame() {
     ctx.clearRect(x, y, dinoWidth, dinoHeight);
+    ctx.clearRect(x2, 400, 200, radiusY*2);
     let frameLength;
     if(walk) {
         while(x < 500) { x += 1; }
         frameLength = walkFrameLength;
     } else if( (x >= 500) || run) {
         while(x < 1000) { x += 1; }
+        x2 -= 85;
+        if(x2 < -150) { x2 = 3000 }
         frameLength = runFrameLength;
     } else if(jump) {
         frameLength = jumpFrameLength;
@@ -106,6 +117,11 @@ function drawImage() {
         dinoCharacter = idleDinoCharacter;
     }
     ctx.drawImage(dinoCharacter, srcX, srcY, dinoWidth, dinoHeight, x, y, dinoWidth, dinoHeight);
+    ctx.beginPath();
+    ctx.ellipse(x2, 500, radiusX, radiusY, Math.PI / 2, 0, 2 * Math.PI);
+    ctx.stroke();
+    ctx.fillStyle = "rgb(255,103,0)";
+    ctx.fill();
 }
 
 function dinoAction(action) {
