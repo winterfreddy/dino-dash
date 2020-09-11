@@ -36,8 +36,9 @@ function startGame() {
                     wCtx.fillStyle = "Black";
                     word = customRadio ? customWord() : sampleWord();
                     wCtx.fillText(word, 300, 300);
-                },700);
+                },1000);
             } else if(input !== word || x2 > 1700) {
+                pass = true;
                 wCtx.clearRect(0, 0, 700, 500);
                 wCtx.fillStyle = "Red";
                 wCtx.fillText(word, 300, 300);

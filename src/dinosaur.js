@@ -124,6 +124,7 @@ function drawImage() {
         dinoCharacter = tripDinoCharacter;
         if (tripOnce) {
             tripOnce = false;
+            pass = false;
             dinoAction('r');
         }
     } else if(dead) {
