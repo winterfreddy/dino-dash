@@ -1,7 +1,7 @@
 let idleDinoCharacter = new Image();
 idleDinoCharacter.src = "./public/images/css_sprites_idle.png";
 let walkDinoCharacter = new Image();
-walkDinoCharacter.src = "./public/images/css_sprites_walk.png";
+walkDinoCharacter.src = "public/images/css_sprites_walk.png";
 let runDinoCharacter = new Image();
 runDinoCharacter.src = "./public/images/css_sprites_run.png";
 let jumpDinoCharacter = new Image();
