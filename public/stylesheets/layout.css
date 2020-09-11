@@ -179,7 +179,13 @@ body {
     width: 30%;
     padding: 10px;
     margin-top: 10px;
- }
+}
+
+.strike-arr {
+    position: absolute;
+    right: 5px;
+    font-size: 40px;
+}
 
 @keyframes fadeEffect {
   from {opacity: 0;}

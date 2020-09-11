@@ -42,6 +42,7 @@ function startGame() {
                 dinoAction('t');
                 setTimeout(function() {
                     counter += 1;
+                    strikeCounter(counter);
                     if(counter > 2) {
                         endTime = new Date().getTime();
                         wCtx.clearRect(0, 0, 700, 500);
@@ -67,6 +68,9 @@ function endGame() {
 }
 
 function calculateWPM() {
+    document.getElementById("strike-one").style.color = "black";
+    document.getElementById("strike-two").style.color = "black";
+    document.getElementById("strike-three").style.color = "black";
     let difference = endTime - startTime;
     let minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
     let seconds = Math.floor((difference % (1000 * 60)) / 1000);
@@ -75,4 +79,14 @@ function calculateWPM() {
     }
     let wpm = (wordCounter * 60)/seconds;
     document.getElementById("wpm-text").innerHTML = wpm.toFixed(2);
+}
+
+function strikeCounter(counter) {
+    if(counter === 1) {
+        document.getElementById("strike-one").style.color = "red";
+    } else if(counter === 2) {
+        document.getElementById("strike-two").style.color = "red";
+    } else if( counter === 3) {
+        document.getElementById("strike-three").style.color = "red";
+    }
 }
