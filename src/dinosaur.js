@@ -67,7 +67,24 @@ function updateFrame() {
     } else if( (x >= 500) || run) {
         while(x < 1000) { x += 1; }
         x2 -= 85;
-        if(x2 < -150) { x2 = 3000 }
+        if(!pass && x2 < 1400 && x2 > 1300) {
+            wCtx.clearRect(0, 0, 700, 500);
+            wCtx.fillStyle = "Red";
+            wCtx.fillText(word, 300, 300);
+            dinoAction('t');
+            counter += 1;
+            strikeCounter(counter);
+            if(counter > 2) {
+                endTime = new Date().getTime();
+                wCtx.clearRect(0, 0, 700, 500);
+                dinoAction('d');
+                endGame();
+            }
+            wCtx.clearRect(0, 0, 700, 500);
+            wCtx.fillStyle = "Black";
+            wCtx.fillText(word, 300, 300);
+        }
+        if (x2 < -150) { x2 = 3000 }
         frameLength = runFrameLength;
     } else if(jump) {
         frameLength = jumpFrameLength;
@@ -100,6 +117,7 @@ function drawImage() {
         dinoCharacter = jumpDinoCharacter;
         if(jumpOnce) {
             jumpOnce = false;
+            pass = false;
             dinoAction('r');
         }
     } else if(trip) {
