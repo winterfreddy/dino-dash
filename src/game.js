@@ -117,6 +117,11 @@ function resetGame() {
     ctx.fill();
 }
 
+function restartGame() {
+    resetGame();
+    startGame();
+}
+
 function calculateWPM() {
     document.getElementById("strike-one").style.color = "black";
     document.getElementById("strike-two").style.color = "black";
