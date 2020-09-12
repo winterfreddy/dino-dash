@@ -32,54 +32,57 @@ var firestore = firebase.firestore();
 
 
 function startGame() {
-    let customRadio = document.getElementById("custom").checked;
-    document.getElementById("gamescreen").style.opacity = "1.0";
-    document.getElementById("end-game").style.display = "none";
-    document.getElementById('type-input').focus();
-    dinoAction('w');
-    startTime = new Date().getTime();
-    word = customRadio ? customWord() : sampleWord();
-    wCtx.fillText(word, 300, 300);
-    document.addEventListener('keydown', function(event) {
-        if(event.which === 13) {
-            let input = document.getElementById('type-input').value;
-            if(input === word && x2 > 1400 && x2 < 1700) {
-                pass = true;
-                wordCounter += 1;
-                wCtx.clearRect(0, 0, 700, 500);
-                wCtx.fillStyle = "Green";
-                wCtx.fillText(word, 300, 300);
-                dinoAction('j');
-                setTimeout(function() {
+    setTimeout(function() {
+        let customRadio = document.getElementById("custom").checked;
+        document.getElementById("gamescreen").style.opacity = "1.0";
+        document.getElementById("end-game").style.display = "none";
+        document.getElementById('type-input').focus();
+        dinoAction('w');
+        startTime = new Date().getTime();
+        word = customRadio ? customWord() : sampleWord();
+        wCtx.fillText(word, 300, 300);
+        document.addEventListener('keydown', function(event) {
+            if(event.which === 13) {
+                let input = document.getElementById('type-input').value;
+                if(input === word && x2 > 1400 && x2 < 1700) {
+                    pass = true;
+                    wordCounter += 1;
                     wCtx.clearRect(0, 0, 700, 500);
-                    wCtx.fillStyle = "Black";
-                    word = customRadio ? customWord() : sampleWord();
+                    wCtx.fillStyle = "Green";
                     wCtx.fillText(word, 300, 300);
-                },1000);
-            } else if(input !== word || x2 > 1700) {
-                pass = true;
-                wCtx.clearRect(0, 0, 700, 500);
-                wCtx.fillStyle = "Red";
-                wCtx.fillText(word, 300, 300);
-                dinoAction('t');
-                setTimeout(function() {
-                    counter += 1;
-                    strikeCounter(counter);
-                    if(counter > 2) {
-                        endTime = new Date().getTime();
+                    dinoAction('j');
+                    setTimeout(function() {
                         wCtx.clearRect(0, 0, 700, 500);
-                        dinoAction('d');
-                        endGame();
-                    }
+                        wCtx.fillStyle = "Black";
+                        word = customRadio ? customWord() : sampleWord();
+                        wCtx.fillText(word, 300, 300);
+                    },1000);
+                } else if(input !== word || x2 > 1700) {
+                    pass = true;
                     wCtx.clearRect(0, 0, 700, 500);
-                    wCtx.fillStyle = "Black";
-                    word = customRadio ? customWord() : sampleWord();
+                    wCtx.fillStyle = "Red";
                     wCtx.fillText(word, 300, 300);
-                }, 1000);
+                    dinoAction('t');
+                    setTimeout(function() {
+                        counter += 1;
+                        strikeCounter(counter);
+                        if(counter > 2) {
+                            endTime = new Date().getTime();
+                            wCtx.clearRect(0, 0, 700, 500);
+                            dinoAction('d');
+                            endGame();
+                        }
+                        wCtx.clearRect(0, 0, 700, 500);
+                        wCtx.fillStyle = "Black";
+                        word = customRadio ? customWord() : sampleWord();
+                        wCtx.fillText(word, 300, 300);
+                    }, 1000);
+                }
+                document.getElementById('type-input').value = '';
             }
-            document.getElementById('type-input').value = '';
-        }
-    })
+        })
+
+    }, 1000);
 }
 
 function endGame() {
