@@ -124,4 +124,5 @@ function submitScore() {
     }).catch(function(error) {
         console.log("Got an error: ", error);
     })
+    getScores();
 }
