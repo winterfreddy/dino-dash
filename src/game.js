@@ -94,6 +94,29 @@ function endGame() {
     document.getElementById('scorename').focus();
 }
 
+function resetGame() {
+    dinoAction('i');
+    document.getElementById("gamescreen").style.opacity = "1.0";
+    document.getElementById("end-game").style.display = "none";
+
+    //clear canvas
+    wCtx.clearRect(0, 0, 700, 500);
+    ctx.clearRect(x2-200, 400, 400, radiusY * 2);
+    x2 = 3000;
+
+    //clear strikes
+    document.getElementById("strike-one").style.color = "black";
+    document.getElementById("strike-two").style.color = "black";
+    document.getElementById("strike-three").style.color = "black";
+
+    //reset the hole
+    ctx.beginPath();
+    ctx.ellipse(x2, 500, radiusX, radiusY, Math.PI / 2, 0, 2 * Math.PI);
+    ctx.stroke();
+    ctx.fillStyle = "rgb(255,103,0)";
+    ctx.fill();
+}
+
 function calculateWPM() {
     document.getElementById("strike-one").style.color = "black";
     document.getElementById("strike-two").style.color = "black";
