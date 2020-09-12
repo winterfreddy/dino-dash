@@ -83,6 +83,7 @@ function startGame() {
 }
 
 function endGame() {
+    document.getElementById("score-text").innerHTML = wordCounter;
     calculateWPM();
     document.getElementById("gamescreen").style.opacity = "0.5";
     document.getElementById("end-game").style.display = "block";
@@ -118,7 +119,7 @@ function submitScore() {
     let name = document.getElementById("scorename").value;
     docRef.add({
         username: name,
-        userscore: wpm
+        userscore: wordCounter
     }).then(function() {
         console.log("score is saved!");
     }).catch(function(error) {
