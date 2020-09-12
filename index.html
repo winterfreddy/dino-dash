@@ -63,7 +63,7 @@
                 <input id="scorename" type="text" placeholder="Your name" class="scoreboard-name">
                 <div class="endgame-actions">
                     <button>Restart</button>
-                    <button>Submit</button>
+                    <button onclick="submitScore()">Submit</button>
                 </div>
             </div>
             <div class="game-controls">
@@ -84,7 +84,35 @@
     </div>
     <script>document.getElementById("defaultOpen").click();</script>
     <script type="text/javascript" src="./src/dinosaur.js"></script>
-    <script type="text/javascript" src="./src/game.js"></script>
     <script type="text/javascript" src="./src/dictionary.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-firestore.js"></script>
+    
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-analytics.js"></script> -->
+    
+    <!-- <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyA8YUXkFFc_GHfe23SGKMHb33d7giArVRs",
+            authDomain: "dino-dash-eb4b7.firebaseapp.com",
+            databaseURL: "https://dino-dash-eb4b7.firebaseio.com",
+            projectId: "dino-dash-eb4b7",
+            storageBucket: "dino-dash-eb4b7.appspot.com",
+            messagingSenderId: "908837679800",
+            appId: "1:908837679800:web:75d4af6f35e69aa6ab7a4d",
+            measurementId: "G-Q6D814E0LK"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script> -->
+
+    <script type="text/javascript" src="./src/game.js"></script>
+
 </body>
 </html>

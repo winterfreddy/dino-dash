@@ -11,6 +11,25 @@ let wordCounter = 0;
 let startTime;
 let endTime;
 let pass = false;
+let wpm;
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+var firebaseConfig = {
+    apiKey: "AIzaSyA8YUXkFFc_GHfe23SGKMHb33d7giArVRs",
+    authDomain: "dino-dash-eb4b7.firebaseapp.com",
+    databaseURL: "https://dino-dash-eb4b7.firebaseio.com",
+    projectId: "dino-dash-eb4b7",
+    storageBucket: "dino-dash-eb4b7.appspot.com",
+    messagingSenderId: "908837679800",
+    appId: "1:908837679800:web:75d4af6f35e69aa6ab7a4d",
+    measurementId: "G-Q6D814E0LK"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+// firebase.analytics();
+var firestore = firebase.firestore();
+
 
 function startGame() {
     let customRadio = document.getElementById("custom").checked;
@@ -80,8 +99,8 @@ function calculateWPM() {
     if(minutes > 0) {
         seconds += (minutes * 60);
     }
-    let wpm = (wordCounter * 60)/seconds;
-    document.getElementById("wpm-text").innerHTML = wpm.toFixed(2);
+    wpm = ((wordCounter * 60)/seconds).toFixed(2);
+    document.getElementById("wpm-text").innerHTML = wpm;
 }
 
 function strikeCounter(counter) {
@@ -92,4 +111,17 @@ function strikeCounter(counter) {
     } else if( counter === 3) {
         document.getElementById("strike-three").style.color = "red";
     }
+}
+
+function submitScore() {
+    const docRef = firestore.collection("scores");
+    let name = document.getElementById("scorename").value;
+    docRef.add({
+        username: name,
+        userscore: wpm
+    }).then(function() {
+        console.log("score is saved!");
+    }).catch(function(error) {
+        console.log("Got an error: ", error);
+    })
 }
