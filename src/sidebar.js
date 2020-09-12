@@ -35,7 +35,8 @@ function getScores() {
         sorted.sort(function(a, b) {
             return b[1] - a[1];
         })
-        
+        sorted = sorted.slice(0,10);
+
         sortedArray = sorted;
         if(sortedArray === sorted && checkCounter === 0) {
             checkCounter += 1;
@@ -43,7 +44,7 @@ function getScores() {
                 let div = document.createElement('div');
                 div.setAttribute('class', 'score-item');
                 let numLabel = document.createElement('label');
-                numLabel.innerHTML = index;
+                numLabel.innerHTML = index+1;
                 div.appendChild(numLabel);
                 let userLabel = document.createElement('label');
                 userLabel.innerHTML = entry[0];
