@@ -86,6 +86,7 @@ function startGame() {
 }
 
 function endGame() {
+    document.getElementById("openScore").click();
     document.getElementById("score-text").innerHTML = wordCounter;
     calculateWPM();
     document.getElementById("gamescreen").style.opacity = "0.5";
