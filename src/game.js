@@ -40,10 +40,12 @@ function startGame() {
         dinoAction('w');
         startTime = new Date().getTime();
         word = customRadio ? customWord() : sampleWord();
+        console.log(word);
         wCtx.fillText(word, 300, 300);
         document.addEventListener('keydown', function(event) {
             if(event.which === 13) {
                 let input = document.getElementById('type-input').value;
+                console.log(input);
                 if(input === word && x2 > 1400 && x2 < 1700) {
                     pass = true;
                     wordCounter += 1;
@@ -57,13 +59,14 @@ function startGame() {
                         word = customRadio ? customWord() : sampleWord();
                         wCtx.fillText(word, 300, 300);
                     },1000);
-                } else if(input !== word || x2 > 1700) {
+                } else if(input !== word || x2 > 1800) {
                     pass = true;
                     wCtx.clearRect(0, 0, 700, 500);
                     wCtx.fillStyle = "Red";
                     wCtx.fillText(word, 300, 300);
                     dinoAction('t');
                     setTimeout(function() {
+                        console.log(input);
                         counter += 1;
                         strikeCounter(counter);
                         if(counter > 2) {
@@ -75,6 +78,7 @@ function startGame() {
                         wCtx.clearRect(0, 0, 700, 500);
                         wCtx.fillStyle = "Black";
                         word = customRadio ? customWord() : sampleWord();
+                        console.log(word)
                         wCtx.fillText(word, 300, 300);
                     }, 1000);
                 }
@@ -98,6 +102,10 @@ function resetGame() {
     dinoAction('i');
     document.getElementById("gamescreen").style.opacity = "1.0";
     document.getElementById("end-game").style.display = "none";
+    document.getElementById('type-input').value = '';
+    counter = 0;
+    wordCounter = 0;
+    pass = false;
 
     //clear canvas
     wCtx.clearRect(0, 0, 700, 500);
@@ -119,7 +127,9 @@ function resetGame() {
 
 function restartGame() {
     resetGame();
-    startGame();
+    setTimeout(function() {
+        startGame();
+    }, 500);
 }
 
 function calculateWPM() {
@@ -158,4 +168,5 @@ function submitScore() {
         console.log("Got an error: ", error);
     })
     getScores();
+    document.getElementById("scorename").value = "";
 }
