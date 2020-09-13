@@ -33,7 +33,13 @@ var firestore = firebase.firestore();
 
 
 function startGame() {
+    document.getElementById("ready-text").style.display = "block";
     setTimeout(function() {
+        document.getElementById("ready-text").style.display = "none";
+        document.getElementById("go-text").style.display = "block";
+    }, 1000)
+    setTimeout(function() {
+        document.getElementById("go-text").style.display = "none";
         let customRadio = document.getElementById("custom").checked;
         document.getElementById("gamescreen").style.opacity = "1.0";
         document.getElementById("end-game").style.display = "none";
@@ -133,7 +139,7 @@ function startGame() {
             }
         })
 
-    }, 1000);
+    }, 2000);
 }
 
 function endGame() {

@@ -164,6 +164,20 @@ body {
     text-align: center;
 }
 
+.ready-text,
+.go-text {
+    position: absolute;
+    font-family: 'Bungee Inline', cursive;
+    font-size: 50px;
+    top: 30%;
+    left: 43%;
+    display: none;
+}
+
+.go-text {
+    left: 48%;
+}
+
 .end-game-dialog {
     display: none;
     position: absolute;
