@@ -211,6 +211,17 @@ body {
     font-family: 'Bungee Inline', cursive;
 }
 
+.credits {
+    position: absolute;
+    font-size: 10px;
+    bottom: 5px;
+    right: 10px;
+}
+
+.credits:hover {
+    background-color: whitesmoke;
+}
+
 @keyframes fadeEffect {
   from {opacity: 0;}
   to {opacity: 1;}
