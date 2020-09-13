@@ -43,7 +43,7 @@ let radiusX = 20;
 let radiusY = 150;
 
 let currentFrame = 0;
-let gameOver = false;
+// let gameOver = false;
 let jumpOnce = false;
 let tripOnce = false;
 

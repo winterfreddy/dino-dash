@@ -12,6 +12,7 @@ let startTime;
 let endTime;
 let pass = false;
 let wpm;
+let gameOver = false;
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -39,6 +40,52 @@ function startGame() {
         document.getElementById('type-input').focus();
         dinoAction('w');
         startTime = new Date().getTime();
+        // while(gameOver === false) {
+        //     //pick a word
+        //     word = customRadio ? customWord() : sampleWord();
+
+        //     //clear previous canvas
+        //     wCtx.clearRect(0, 0, 700, 500);
+        //     wCtx.fillStyle = "Black";
+        //     wCtx.fillText(word, 300, 300);
+
+        //     //listen for specific keydown event
+        //     document.addEventListener('keydown', function(event) {
+        //         if(event.which === 13) { //listen for 'enter' key
+        //             let input = document.getElementById('type-input').value;
+        //             if(input === word && x2 > 1400 && x2 < 1800) { // if input is correct and within jumping bounds
+        //                 pass = true;
+        //                 wordCounter += 1;
+
+        //                 //show verification word was entered correctly
+        //                 wCtx.clearRect(0, 0, 700, 500);
+        //                 wCtx.fillStyle = "Green";
+        //                 wCtx.fillText(word, 300, 300);
+        //                 dinoAction('j');
+
+        //             } else if( input !== word || x2 > 1800) { // if input is not correct or entered too early
+        //                 pass = true;
+                        
+        //                 //show verification word was entered incorrectly
+        //                 wCtx.clearRect(0, 0, 700, 500);
+        //                 wCtx.fillStyle = "Red";
+        //                 wCtx.fillText(word, 300, 300);
+        //                 dinoAction('t');
+        //                 counter += 1;
+        //                 strikeCounter(counter);
+        //                 setTimeout(function() {
+        //                     if (counter > 2) {
+        //                         endTime = new Date().getTime();
+        //                         wCtx.clearRect(0, 0, 700, 500);
+        //                         dinoAction('d');
+        //                         endGame();
+        //                     }
+        //                 }, 500);
+        //             }
+        //             document.getElementById('type-input').value = '';
+        //         }
+        //     })
+        // }
         word = customRadio ? customWord() : sampleWord();
         console.log(word);
         wCtx.fillText(word, 300, 300);
@@ -106,6 +153,7 @@ function resetGame() {
     counter = 0;
     wordCounter = 0;
     pass = false;
+    // gameOver = false;
 
     //clear canvas
     wCtx.clearRect(0, 0, 700, 500);
