@@ -225,6 +225,12 @@ body {
     font-family: 'Bungee Inline', cursive;
 }
 
+.score-header,
+.score-item {
+    display: flex;
+    justify-content: space-between;
+}
+
 .credits {
     position: absolute;
     font-size: 10px;
