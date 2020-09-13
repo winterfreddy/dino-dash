@@ -80,8 +80,8 @@
                 <br>
                 <input id="scorename" type="text" placeholder="Your name" class="scoreboard-name">
                 <div class="endgame-actions">
-                    <button onclick="restartGame()">Restart</button>
-                    <button onclick="submitScore()">Submit</button>
+                    <button class="game-restart" onclick="restartGame()">Restart</button>
+                    <button class="game-score" onclick="submitScore()">Submit</button>
                 </div>
             </div>
             <div class="game-controls">
@@ -92,7 +92,7 @@
                 <input type="radio" name="choice" id="custom">
                 <label for="choice">Custom Text:</label>
                 <br>
-                <textarea name="" id="custom-textarea" cols="30" rows="10"></textarea>
+                <textarea name="" id="custom-textarea" style="width: 100%; height: 50%;"></textarea>
                 <div class="game-actions">
                     <button class="game-reset" onclick="resetGame()">RESET</button>
                     <button class="game-start" onclick="startGame()">START</button>

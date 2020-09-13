@@ -12,7 +12,7 @@ let startTime;
 let endTime;
 let pass = false;
 let wpm;
-let gameOver = false;
+// let gameOver = false;
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
