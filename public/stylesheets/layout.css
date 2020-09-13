@@ -229,6 +229,11 @@ body {
 .score-item {
     display: flex;
     justify-content: space-between;
+    padding: 5px 0 5px 0;
+}
+
+.score-header {
+    font-weight: bold;
 }
 
 .credits {
