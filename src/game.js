@@ -152,38 +152,43 @@ function endGame() {
 }
 
 function resetGame() {
-    dinoAction('i');
-    document.getElementById("gamescreen").style.opacity = "1.0";
-    document.getElementById("end-game").style.display = "none";
-    document.getElementById('type-input').value = '';
-    counter = 0;
-    wordCounter = 0;
-    pass = false;
-    // gameOver = false;
+    location.reload();
+    return false;
 
-    //clear canvas
-    wCtx.clearRect(0, 0, 700, 500);
-    ctx.clearRect(x2-200, 400, 400, radiusY * 2);
-    x2 = 3000;
+    // dinoAction('i');
+    // document.getElementById("gamescreen").style.opacity = "1.0";
+    // document.getElementById("end-game").style.display = "none";
+    // document.getElementById('type-input').value = '';
+    // counter = 0;
+    // wordCounter = 0;
+    // pass = false;
+    // // gameOver = false;
 
-    //clear strikes
-    document.getElementById("strike-one").style.color = "black";
-    document.getElementById("strike-two").style.color = "black";
-    document.getElementById("strike-three").style.color = "black";
+    // //clear canvas
+    // wCtx.clearRect(0, 0, 700, 500);
+    // ctx.clearRect(x2-200, 400, 400, radiusY * 2);
+    // x2 = 3000;
 
-    //reset the hole
-    ctx.beginPath();
-    ctx.ellipse(x2, 500, radiusX, radiusY, Math.PI / 2, 0, 2 * Math.PI);
-    ctx.stroke();
-    ctx.fillStyle = "rgb(255,103,0)";
-    ctx.fill();
+    // //clear strikes
+    // document.getElementById("strike-one").style.color = "black";
+    // document.getElementById("strike-two").style.color = "black";
+    // document.getElementById("strike-three").style.color = "black";
+
+    // //reset the hole
+    // ctx.beginPath();
+    // ctx.ellipse(x2, 500, radiusX, radiusY, Math.PI / 2, 0, 2 * Math.PI);
+    // ctx.stroke();
+    // ctx.fillStyle = "rgb(255,103,0)";
+    // ctx.fill();
 }
 
 function restartGame() {
-    resetGame();
-    setTimeout(function() {
-        startGame();
-    }, 500);
+    location.reload();
+    return false;
+    // resetGame();
+    // setTimeout(function() {
+    //     startGame();
+    // }, 500);
 }
 
 function calculateWPM() {
