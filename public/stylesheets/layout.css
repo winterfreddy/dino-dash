@@ -16,6 +16,12 @@ body {
     border-bottom: 3px solid black;
 }
 
+.links {
+    position: absolute;
+    right: 10px;
+    padding: 0 5px 0 5px;
+}
+
 .sidebar {
     position: absolute;
     border-radius: 3px;
@@ -108,12 +114,14 @@ body {
 }
 
 .game-screen {
+    background-image: url('../images/dinobackground-2358.jpg');
     border: 1px solid black;
     position: absolute;
     right: 50px;
     top: 100px;
     bottom: 50px;
     left: 25%;
+    background-size: cover;
 }
 
 .canvas {
