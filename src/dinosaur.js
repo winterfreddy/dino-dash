@@ -129,7 +129,12 @@ function drawImage() {
         }
     } else if(dead) {
         dinoCharacter = deadDinoCharacter;
-        if(gameOver) { dinoAction("o"); }
+        if(gameOver) { 
+            dinoAction("o");
+            ctx = null;
+            wCtx = null;
+            return; 
+        }
     } else if(over) {
         dinoCharacter = endDinoCharacter;
     } else {
