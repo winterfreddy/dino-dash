@@ -32,7 +32,7 @@ After the player hits three strikes, the game is over and is presented with a st
 
 ### Rendering the dinosaur and the lava hole at the same time
 
-The challenge here was trying to render both the dinosaur and the moving lava hole at the same time. The first implementation was to have the dinosaur sprite animation working. Then the next step was wondering how to have the moving lava hole object animation. I considered two ways: one was to draw another canvas that overlaps the dinosaur sprite canvas so it would look more seamless and the other way was to utilize the same canvas and have another context variable to keep track of the moving lava hole object. I decided to go with the latter to keep my code streamlined and have less repitition of similar code. The redacted code snippet (from updateFrame() in [dinosaur.js](https://github.com/winterfreddy/dino-dash/blob/master/src/dinosaur.js)) below shows the simplification of code that makes the animation of the lava hole object and dinosaur animation work well (note: variable x refers to dinosaur x coordinate position and variable x2 refers to the moving lava hole object x coordinate position).
+The challenge here was trying to render both the dinosaur and the moving lava hole at the same time. The first step was to have the dinosaur sprite animation working. Then the next step was wondering how to have the moving lava hole object animation. I considered two ways: one was to draw another canvas that overlaps the dinosaur sprite canvas so it would look more seamless and the other way was to utilize the same canvas and have another context variable to keep track of the moving lava hole object. I decided to go with the latter to keep my code streamlined and have less repetition of similar code. The redacted code snippet (from updateFrame() in [dinosaur.js](https://github.com/winterfreddy/dino-dash/blob/master/src/dinosaur.js)) below shows the simplification of code that makes the animation of the lava hole object and dinosaur animation work well (note: variable x refers to dinosaur x coordinate position and variable x2 refers to the moving lava hole object x coordinate position).
 
 ``` javascript
 function updateFrame() {
@@ -61,7 +61,7 @@ function updateFrame() {
 
 ### Timing issues when starting the game
 
-The challenge here was to try to serve a delay between the moment the user clicks on the 'start' button on the sidebar and when the actaul game logic runs. Immediately starting the game was my original intention but after many trials, it came to my realization that there should be a delay to prepare the user for the game. To remedy this, I considered doing sleep functions to create a delay but that didn't help. I've used to have code that would routinely repeat the code every certain amount of time (utilized for sprite animation) and looked for a similar functionaltiy to add delay. I found setTimeout and throughly tested to ensure that it would stimulate a delay as shown in the redacted code snippet below from [game.js](https://github.com/winterfreddy/dino-dash/blob/master/src/game.js).
+The challenge here was to try to serve a delay between the moment the user clicks on the 'start' button on the sidebar and when the actual game logic runs. Immediately starting the game was my original intention but after many trials, it came to my realization that there should be a delay to prepare the user for the game. To remedy this, I considered doing sleep functions to create a delay but that didn't help. I've used to have code that would routinely repeat the code every certain amount of time (utilized for sprite animation) and looked for a similar functionaltiy to add delay. I found setTimeout and throughly tested to ensure that it would stimulate a delay as shown in the redacted code snippet below from [game.js](https://github.com/winterfreddy/dino-dash/blob/master/src/game.js).
 
 ``` javascript
 function startGame() {
@@ -80,6 +80,6 @@ function startGame() {
 ```
 
 ## For Future Releases
-* Improve animation for dinosaur
+* Improve dinosaur animation
 * Adjust timing of words in correlation to lava hole
 * Adjust restarting the game
