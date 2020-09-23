@@ -69,15 +69,19 @@ body {
   padding: 6px 12px;
   border: 1px solid #ccc;
   border-top: none;
-  width: 259px;
   min-height: 400px;
   background-color: #f4c430;
   animation: fadeEffect 1s;
   font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
 }
 
 .tabcontent h3 {
     font-family: 'Bungee Inline', cursive;
+}
+
+.tabcontent ol {
+    padding-left: 20px;
 }
 
 .tablinks {
