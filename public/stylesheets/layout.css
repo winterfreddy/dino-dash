@@ -69,7 +69,9 @@ body {
   padding: 6px 12px;
   border: 1px solid #ccc;
   border-top: none;
-  min-height: 400px;
+  min-height: 500px;
+  left: 0;
+  right: 0;
   background-color: #f4c430;
   animation: fadeEffect 1s;
   font-family: 'Roboto', sans-serif;
