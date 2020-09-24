@@ -108,6 +108,10 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.game-controls > label {
+    margin-bottom: 10px;
+}
+
 .game-actions {
     display: flex;
     justify-content: space-evenly;
@@ -146,6 +150,12 @@ body {
     bottom: 50px;
     left: 25%;
     background-size: cover;
+}
+
+.gameover-title {
+    font-family: 'Bungee Inline', cursive;
+    font-size: 30px;
+    vertical-align: middle;
 }
 
 .canvas {
@@ -197,7 +207,7 @@ body {
     padding: 20px;
     top: 30%;
     left: 45%;
-    right: 25%;
+    right: 23%;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -208,7 +218,7 @@ body {
 }
 
 .scoreboard-name {
-    width: 95%;
+    width: 97%;
     font-size: 15px;
     padding-top: 5px;
     margin: 5px 0 5px 0;
