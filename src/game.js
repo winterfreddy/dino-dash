@@ -99,7 +99,7 @@ function startGame() {
             if(event.which === 13) {
                 let input = document.getElementById('type-input').value;
                 console.log(input);
-                if(input === word && x2 > 1400 && x2 < 1700) {
+                if(input === word && x2 >= 1300 && x2 <= 1800) {
                     pass = true;
                     wordCounter += 1;
                     wCtx.clearRect(0, 0, 700, 500);
