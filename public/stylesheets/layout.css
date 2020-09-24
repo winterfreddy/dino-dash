@@ -302,6 +302,10 @@ body {
     background-color: #ddd;
 }
 
+.dropdown-content div:first-child {
+    background-color: #ddd;
+}
+
 .dropdown:hover .dropdown-content {
     display: block;
 }
