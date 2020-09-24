@@ -24,7 +24,7 @@ During the game, players have to type that matches the prompted words. Strikes a
 ![](https://github.com/winterfreddy/dino-dash/blob/master/public/images/middle.png)
 
 ### Game Over Screen
-After the player hits three strikes, the game is over and is presented with a stimulated modal that accepts a name to be counted on the high score list. The sidebar automatically switches to the high score tab to view previous players results. Players can hit 'restart' or 'submit' button, in addition to the sidebar buttons.
+After the player hits three strikes, the game is over and is presented with a stimulated modal that accepts a name to be counted on the high score list. The sidebar automatically switches to the high score tab to view previous players results. Players can hit 'submit' button to submit the score or start the game again by clicking on 'reset' button.
 
 ![](https://github.com/winterfreddy/dino-dash/blob/master/public/images/end.png)
 
