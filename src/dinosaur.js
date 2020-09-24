@@ -58,8 +58,10 @@ ctx.fillStyle = "rgb(255,103,0)";
 ctx.fill();
 
 function updateFrame() {
-    ctx.clearRect(x, y, dinoWidth, dinoHeight);
-    ctx.clearRect(x2, 400, 200, radiusY*2);
+    if(ctx !== null) {
+        ctx.clearRect(x, y, dinoWidth, dinoHeight);
+        ctx.clearRect(x2, 400, 200, radiusY*2);
+    }
     let frameLength;
     if(walk) {
         while(x < 500) { x += 1; }
@@ -67,24 +69,27 @@ function updateFrame() {
     } else if( (x >= 500) || run) {
         while(x < 1000) { x += 1; }
         x2 -= 85;
-        if(!pass && x2 < 1400 && x2 > 1300) {
-            wCtx.clearRect(0, 0, 700, 500);
-            wCtx.fillStyle = "Red";
-            wCtx.fillText(word, 300, 300);
-            dinoAction('t');
-            counter += 1;
-            strikeCounter(counter);
-            if(counter > 2) {
-                endTime = new Date().getTime();
+        if(pass === false && x2 === 1215) {
+            if(wCtx !== null) {
                 wCtx.clearRect(0, 0, 700, 500);
-                dinoAction('d');
-                endGame();
+                wCtx.fillStyle = "Red";
+                wCtx.fillText(word, 300, 300);
+                dinoAction('t');
+                counter += 1;
+                strikeCounter(counter);
+                if(counter > 2) {
+                    endTime = new Date().getTime();
+                    wCtx.clearRect(0, 0, 700, 500);
+                    dinoAction('d');
+                    endGame();
+                }
+                wCtx.clearRect(0, 0, 700, 500);
+                wCtx.fillStyle = "Black";
+                wCtx.fillText(word, 300, 300);
             }
-            wCtx.clearRect(0, 0, 700, 500);
-            wCtx.fillStyle = "Black";
-            wCtx.fillText(word, 300, 300);
         }
-        if (x2 < -150) { x2 = 3000 }
+        if (x2 === 1215) { pass = false }
+        if (x2 === -230) { x2 = 3000 }
         frameLength = runFrameLength;
     } else if(jump) {
         frameLength = jumpFrameLength;
@@ -117,14 +122,12 @@ function drawImage() {
         dinoCharacter = jumpDinoCharacter;
         if(jumpOnce) {
             jumpOnce = false;
-            pass = false;
             dinoAction('r');
         }
     } else if(trip) {
         dinoCharacter = tripDinoCharacter;
         if (tripOnce) {
             tripOnce = false;
-            pass = false;
             dinoAction('r');
         }
     } else if(dead) {
@@ -140,12 +143,14 @@ function drawImage() {
     } else {
         dinoCharacter = idleDinoCharacter;
     }
-    window.onload = ctx.drawImage(dinoCharacter, srcX, srcY, dinoWidth, dinoHeight, x, y, dinoWidth, dinoHeight);
-    ctx.beginPath();
-    ctx.ellipse(x2, 500, radiusX, radiusY, Math.PI / 2, 0, 2 * Math.PI);
-    ctx.stroke();
-    ctx.fillStyle = "rgb(255,103,0)";
-    ctx.fill();
+    if(ctx !== null) {
+        window.onload = ctx.drawImage(dinoCharacter, srcX, srcY, dinoWidth, dinoHeight, x, y, dinoWidth, dinoHeight);
+        ctx.beginPath();
+        ctx.ellipse(x2, 500, radiusX, radiusY, Math.PI / 2, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.fillStyle = "rgb(255,103,0)";
+        ctx.fill();
+    }
 }
 
 function dinoAction(action) {
@@ -158,7 +163,7 @@ function dinoAction(action) {
     over = false;
 
     if(action === "i") {
-        ctx.clearRect(x, y, dinoWidth, dinoHeight);
+        if(ctx !== null) ctx.clearRect(x, y, dinoWidth, dinoHeight);
         x = 0;
         y = 0;
         idle = true;

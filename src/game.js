@@ -98,8 +98,7 @@ function startGame() {
         document.addEventListener('keydown', function(event) {
             if(event.which === 13) {
                 let input = document.getElementById('type-input').value;
-                console.log(input);
-                if(input === word && x2 >= 1300 && x2 <= 1800) {
+                if(input === word && x2 < 1725) {
                     pass = true;
                     wordCounter += 1;
                     wCtx.clearRect(0, 0, 700, 500);
@@ -107,12 +106,14 @@ function startGame() {
                     wCtx.fillText(word, 300, 300);
                     dinoAction('j');
                     setTimeout(function() {
-                        wCtx.clearRect(0, 0, 700, 500);
-                        wCtx.fillStyle = "Black";
-                        word = customRadio ? customWord() : sampleWord();
-                        wCtx.fillText(word, 300, 300);
+                        if(wCtx !== null) {
+                            wCtx.clearRect(0, 0, 700, 500);
+                            wCtx.fillStyle = "Black";
+                            word = customRadio ? customWord() : sampleWord();
+                            wCtx.fillText(word, 300, 300);
+                        }
                     },1000);
-                } else if(input !== word || x2 > 1800) {
+                } else {
                     pass = true;
                     wCtx.clearRect(0, 0, 700, 500);
                     wCtx.fillStyle = "Red";
