@@ -1,6 +1,6 @@
 # Dino Dash
 
-Dino Dash is a Javascript-based project that utilizes HTML and CSS to create a typing-based game. In Dino Dash, the user types the prompted words to let the dinosaur jump across the lava holes. Users can also enter their score into the top ten high scores which is stored into Firebase Firestore database. Instructions are included in the game, presented on the left sidebar on start.
+Dino Dash is a Javascript-based project that utilizes HTML and CSS to create a typing-based game. In Dino Dash, the user types the prompted words to let the dinosaur jump across the lava holes. Users can also enter their score into the top ten high scores which is stored into Google Firebase Firestore database. Instructions are included in the game, presented on the left sidebar on start.
 
 You can visit the live link here: [Dino Dash](https://winterfreddy.github.io/dino-dash/)
 
@@ -32,7 +32,7 @@ After the player hits three strikes, the game is over and is presented with a st
 
 ### Rendering the dinosaur and the lava hole at the same time
 
-The challenge here was trying to render both the dinosaur and the moving lava hole at the same time. The first step was to have the dinosaur sprite animation working. Then the next step was wondering how to have the moving lava hole object animation. I considered two ways: one was to draw another canvas that overlaps the dinosaur sprite canvas so it would look more seamless and the other way was to utilize the same canvas and have another context variable to keep track of the moving lava hole object. I decided to go with the latter to keep my code streamlined and have less repetition of similar code. The redacted code snippet (from updateFrame() in [dinosaur.js](https://github.com/winterfreddy/dino-dash/blob/master/src/dinosaur.js)) below shows the simplification of code that makes the animation of the lava hole object and dinosaur animation work well (note: variable x refers to dinosaur x coordinate position and variable x2 refers to the moving lava hole object x coordinate position).
+The challenge here was trying to render both the dinosaur and the moving lava hole at the same time. Additionally, these two moving objects have to correlate to the DOM EventListener for the 'enter' key to activate specific animations. The first step was to have the dinosaur sprite animation working. Then the next step was wondering how to have the moving lava hole object animation. I considered two ways: one was to draw another canvas that overlaps the dinosaur sprite canvas so it would look more seamless and the other way was to utilize the same canvas and have another context variable to keep track of the moving lava hole object. I decided to go with the latter to keep my code streamlined and have less repetition of similar code. The redacted code snippet (from updateFrame() in [dinosaur.js](https://github.com/winterfreddy/dino-dash/blob/master/src/dinosaur.js)) below shows the simplification of code that makes the animation of the lava hole object and dinosaur animation work well (note: variable x refers to dinosaur x coordinate position and variable x2 refers to the moving lava hole object x coordinate position).
 
 ``` javascript
 function updateFrame() {
@@ -82,4 +82,4 @@ function startGame() {
 ## For Future Releases
 * Improve dinosaur animation
 * Adjust timing of words in correlation to lava hole
-* Adjust restarting the game
+* Consider lava animation
