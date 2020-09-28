@@ -83,3 +83,4 @@ function startGame() {
 * Improve dinosaur animation
 * Adjust timing of words in correlation to lava hole
 * Adjust restarting the game
+* Implement X/Y scroll lock on page
